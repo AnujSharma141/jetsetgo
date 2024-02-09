@@ -243,3 +243,41 @@ input{
     margin-left: 6vh;
     width: 30vh;
 }
+
+@media only screen and (max-width: 600px){
+    .search-background{
+        width: 100vw;
+        margin-top: -3vh !important;
+        padding-top: 4vh;
+        border-radius: 0vh !important;
+    }
+
+    .search-forms{
+        flex-direction: column !important;
+        width: 80vw;
+        margin-top: 10vh;
+    }
+    .search-locations{
+        margin-bottom: 3vh;
+    }
+    .footer{
+        position: relative !important;
+    }
+    .result-forms{
+        margin-top: 4vh;
+    }
+    .result-form{
+        align-items: center !important;
+        margin-top: 0;
+    }
+    .search-date{
+        margin-bottom: 4vh;
+    }
+    .result-filters{
+        width: 89vw;
+    }
+
+    .result-content{
+        height: 54vh;
+    }
+}
