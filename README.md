@@ -3,7 +3,7 @@
 Flights booking React application.
 
 ### Preview Link
-[https://elaborate-brigadeiros-2576d1.netlify.app/](https://elaborate-brigadeiros-2576d1.netlify.app/) to view it in your browser.
+[https://jet-set-go.netlify.app/](https://jet-set-go.netlify.app/) to view it in your browser.
 
 ### Stack
 
