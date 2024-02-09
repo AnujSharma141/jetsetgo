@@ -12,7 +12,7 @@ import { search } from "./util/helpers";
 
 function App() {
   const [isSearch, setIsSearch] = useState(false)
-  const [isResult, setIsResult] = useState(false)
+  const [isResult, setIsResult] = useState(true)
   const flights = useFlights()
 
   const [results, setResults] = useState([])
