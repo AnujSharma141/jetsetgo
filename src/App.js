@@ -11,7 +11,7 @@ import useFlights from "./hooks/useFlights";
 import { search } from "./util/helpers";
 
 function App() {
-  const [isSearch, setIsSearch] = useState(false)
+  const [isSearch, setIsSearch] = useState(true)
   const [isResult, setIsResult] = useState(true)
   const flights = useFlights()
 
