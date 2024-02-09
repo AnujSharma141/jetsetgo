@@ -66,8 +66,8 @@ const inpuHandler = (e) => setInput({...input, [e.target.name]: e.target.value,}
           : <Landing setIsSearch={setIsSearch}  />}
 
           <footer className='footer'>
-            <span>Github Link</span>
-            <span>by Anuj Sharma</span>
+            <a style={{textDecoration: 'underline'}} href="https://github.com/AnujSharma141/jetsetgo">Github Link</a>
+            <span>by <a style={{textDecoration: 'underline'}} href="https://anujsharma.online/"> Anuj Sharma</a> </span> 
         </footer>
     </div>
     </ResultContext.Provider>
