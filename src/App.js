@@ -37,9 +37,9 @@ function App() {
       })
     else {
       const searchResults = search(input, flights.data.result) 
-      if(searchResults.length>0) setResults({data:{result: searchResults}}) 
-      else setResults(flights)
-      setDisplay(flights)
+      if(searchResults.length>0){ setResults({data:{result: searchResults}}); setDisplay({data:{result: searchResults}})}
+      else {setResults(flights); setDisplay(flights) }
+      
       toast({
         duration: 3000,
         isClosable: true,

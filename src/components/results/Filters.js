@@ -15,7 +15,6 @@ import ResultContext from '../../core/results';
 export default function Filters(props) {
     const flights = useFlights()
     const results = useContext(ResultContext)
-    
   return (
     <div className='result-filters'>
         <Menu>
@@ -24,7 +23,7 @@ export default function Filters(props) {
             </MenuButton>
             <MenuList>
                 {getAirlines(flights?.data?.result).map(item=>
-                <MenuItem onClick={() => results.setResults({data:{result: filterByAirline(flights?.data?.result, item)}})}>{item}</MenuItem>)}
+                <MenuItem onClick={() => results.setResults({data:{result: filterByAirline(results?.display?.data?.result, item)}})}>{item}</MenuItem>)}
             </MenuList>
         </Menu>
         
@@ -33,8 +32,8 @@ export default function Filters(props) {
                 Stops
             </MenuButton>
             <MenuList >
-                <MenuItem onClick={() => results.setResults({data:{result: filterByStop(flights?.data?.result, 'Non stop')}})}>Non Stop</MenuItem>
-                <MenuItem onClick={() => results.setResults({data:{result: filterByStop(flights?.data?.result, '1 Stop')}})}>With Stop</MenuItem>
+                <MenuItem onClick={() => results.setResults({data:{result: filterByStop(results?.display?.data?.result, 'Non stop')}})}>Non Stop</MenuItem>
+                <MenuItem onClick={() => results.setResults({data:{result: filterByStop(results?.display?.data?.result, '1 Stop')}})}>With Stop</MenuItem>
             </MenuList>
         </Menu>
 
@@ -43,12 +42,12 @@ export default function Filters(props) {
                 Sort by
             </MenuButton>
             <MenuList>
-                <MenuItem onClick={() => results.setResults({data:{result: sortPriceHigh(flights?.data?.result)}})}>lowest price</MenuItem>
-                <MenuItem onClick={() => results.setResults({data:{result: sortPriceLow(flights?.data?.result)}})}>highest price</MenuItem>
+                <MenuItem onClick={() => results.setResults({data:{result: sortPriceHigh(results?.display?.data?.result)}})}>lowest price</MenuItem>
+                <MenuItem onClick={() => results.setResults({data:{result: sortPriceLow(results?.display?.data?.result)}})}>highest price</MenuItem>
             </MenuList>
         </Menu>
 
-        <Box cursor='pointer' mt='-1.5vh' textDecor='underline' ml='2vh' fontSize='1.9vh' onClick={() => {results.setResults(results.display); props.clear();}}>Clear Filters/Search</Box>
+        <Box cursor='pointer' mt='-1.5vh' textDecor='underline' ml='2vh' fontSize='1.9vh' onClick={() => {results.setResults(results.display)}}>Clear Filters/Search</Box>
     </div>
   )
 }
