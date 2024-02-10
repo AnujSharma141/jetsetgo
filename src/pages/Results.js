@@ -15,7 +15,6 @@ export default function Results(props) {
   useEffect(()=>{
   }, [flights, results])
 
-  console.log(results)
   return (
     <div className='results-layout'>
     <Nav />

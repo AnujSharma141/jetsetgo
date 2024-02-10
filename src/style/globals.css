@@ -75,6 +75,8 @@
 .landing-graphic{
     margin-top: 6vh;
     width: 40vh;
+    min-width: 40vh;
+    min-height: 25vh;
 }
 .landing-heading{
     font-size: 8.7vh;
