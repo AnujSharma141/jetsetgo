@@ -8,7 +8,9 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io";
 import ResultContext from "./core/results";
 import useFlights from "./hooks/useFlights";
+import { Routes , Route, useNavigate} from 'react-router-dom'
 import { search } from "./util/helpers";
+import Footer from "./components/common/Footer";
 
 function App() {
   const [isSearch, setIsSearch] = useState(false)
@@ -20,6 +22,7 @@ function App() {
   const [input , setInput] = useState({from: '', to: '', date: ''})
 
   const toast = useToast()
+  const navigate = useNavigate();
 
   const searchHandler = () =>{
     if(input.from === '' || input.to === '' || input.date === '')
@@ -50,7 +53,7 @@ function App() {
             </Box>
           ),
       })
-      setIsResult(true)
+      navigate('/results')
     }
 }
 
@@ -59,17 +62,15 @@ const inpuHandler = (e) => setInput({...input, [e.target.name]: e.target.value,}
   return (
     <ChakraProvider>
     <ResultContext.Provider value={{list: results, display: display, setResults}}>
-    <div className='app-layout'>
+      <Routes>
+        <Route path="/" element={<><div className='app-layout'>
+          {isSearch? <Search input={input} setInput={setInput} setIsResult={setIsResult} searchHandler={searchHandler} inputHandler={inpuHandler}  />
+            : <Landing setIsSearch={setIsSearch}  />}
+            <Footer/>
+          </div></>} />
+        <Route path="/results" element={<Results input={input} setInput={setInput} searchHandler={searchHandler} inputHandler={inpuHandler} /> } />
+      </Routes>
       
-        {isResult? <Results input={input} setInput={setInput} searchHandler={searchHandler} inputHandler={inpuHandler} /> :
-          isSearch? <Search input={input} setInput={setInput} setIsResult={setIsResult} searchHandler={searchHandler} inputHandler={inpuHandler}  />
-          : <Landing setIsSearch={setIsSearch}  />}
-
-          <footer className='footer'>
-            <a style={{textDecoration: 'underline'}} href="https://github.com/AnujSharma141/jetsetgo">Github Link</a>
-            <span>by <a style={{textDecoration: 'underline'}} href="https://anujsharma.online/"> Anuj Sharma</a> </span> 
-        </footer>
-    </div>
     </ResultContext.Provider>
     </ChakraProvider>
   );

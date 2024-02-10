@@ -6,6 +6,7 @@ import Flight from '../components/results/Flight'
 import {Box, Input, Spinner} from '@chakra-ui/react'
 import Filters from '../components/results/Filters'
 import ResultContext from '../core/results'
+import Footer from '../components/common/Footer'
 
 export default function Results(props) {
   
@@ -16,6 +17,7 @@ export default function Results(props) {
   }, [flights, results])
 
   return (
+    <div className='app-layout'>
     <div className='results-layout'>
     <Nav />
     <div className='result-section'>
@@ -36,10 +38,12 @@ export default function Results(props) {
         <Filters clear={()=>props.setInput({from: '', to: '', date: ''})} />
         <div className='flights-list'>
         {results.list.data?.result?.length>0 ? results?.list?.data?.result.map(item=><Flight item={item} />) :
-         <Box width='90vw' height='40vh' display='flex' alignItems='center' justifyContent='center'><Spinner /></Box>}
+         <Box width='90vw' height='40vh' display='flex' alignItems='center' justifyContent='center'>Search for the desired Flight.</Box>}
         </div>
       </div>
     </div>
+    </div>
+    <Footer/>
     </div>
   )
 }
